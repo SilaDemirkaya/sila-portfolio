@@ -8,9 +8,19 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sila Demirkaya — Portfolio",
-  description: "Software Developer portfolio of Sila Demirkaya",
+  title: "Sila Demirkaya — Software Developer",
+  description: "Portfolio of Sila Demirkaya, full-stack developer specialized in Next.js, React, Node.js, and PostgreSQL.",
+  openGraph: {
+    title: "Sila Demirkaya — Portfolio",
+    description: "Full-stack developer portfolio.",
+    url: "https://sila-portfolio.vercel.app",
+    siteName: "Sila Demirkaya Portfolio",
+    images: ["/og-image.png"], // create a nice preview image
+    locale: "en_US",
+    type: "website",
+  },
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
