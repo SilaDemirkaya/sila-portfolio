@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Light-first palette */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;         /* slate-900 */
+  --muted: #64748b;              /* slate-500 */
+  --card: #ffffff;
+  --border: #e5e7eb;             /* gray-200 */
+  --accent: #6b4de6;             /* soft indigo-violet */
+  --accent-foreground: #ffffff;
+  --ring: color-mix(in oklab, var(--accent), white 60%);
+}
+
+/* Optional dark mode (still nice but not pitch black) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1020;       /* deep blue-black, not pure black */
+    --foreground: #e5e7eb;
+    --muted: #94a3b8;            /* slate-400 */
+    --card: #0f172a;
+    --border: #1f2937;
+    --accent: #8d78ff;
+    --accent-foreground: #0b1020;
+    --ring: color-mix(in oklab, var(--accent), white 75%);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Tiny helpers for consistent UI */
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition;
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.btn:hover { filter: brightness(0.95); }
+
+.btn-outline {
+  @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition border;
+  border-color: var(--border);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: color-mix(in oklab, var(--accent), transparent 90%);
+  color: var(--foreground);
+}
+
+
+.card {
+  @apply rounded-2xl border shadow-sm transition;
+  background: var(--card);
+  border-color: var(--border);
+}
+.card:hover { box-shadow: 0 8px 24px color-mix(in oklab, var(--ring), transparent 70%); }
+
+.chip {
+  @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium;
+  border-color: var(--border);
+  color: var(--muted);
+}
